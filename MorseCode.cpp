@@ -48,14 +48,17 @@ char * convert_to_morse_code(char * text)
     // Need to check if character is within alphanumeric window.
     ascii_int = (int) *iter;
 
+    // For "a-z"
     if (ascii_int >= 97 && ascii_int <= 122)
     {
       strcat(morse_code, morse_code_alpha_table[ascii_int - 97]);
     }
+    // For "A-Z"
     else if (ascii_int >= 65 && ascii_int <= 90)
     {
       strcat(morse_code, morse_code_alpha_table[ascii_int - 65]);
     }
+    // "For 0-9"
     else if (ascii_int >= 48 && ascii_int <= 57)
     {
       strcat(morse_code, morse_code_num_table[ascii_int - 48]);
@@ -66,6 +69,7 @@ char * convert_to_morse_code(char * text)
       exit(-1);
     }
 
+    // Add space between letters.
     strcat(morse_code, " ");
 
     iter++;
